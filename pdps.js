@@ -1,5 +1,7 @@
 
-            const selBase = document.getElementById("selBase");
+document.addEventListener("DOMContentLoaded", function() {
+          
+          const selBase = document.getElementById("selBase");
             const inpBaseMin = document.getElementById("inpBaseMin");
             const inpBaseMax = document.getElementById("inpBaseMax");
 
@@ -315,3 +317,4 @@ function updateTotalValues() {
 // Functions for updating tiers of Phys, Hyb, Speed (similar to updateInpFlatTier)
 // Implement similar logic for updateInpPhysTier, updateInpHybTier, and updateInpSpeedTier functions
 
+});
