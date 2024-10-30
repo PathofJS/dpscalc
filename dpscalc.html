@@ -21,7 +21,7 @@
             Quality: <span class="wepVal">+<span id="wepQual">0</span>%</span><br>
             Physical Damage: <span class="wepVal"><span  id="totalMin">0</span>-<span  id="totalMax">0</span></span><br>
             Critical Strike Chance: 0.00%<br>
-            Attacks per Second: <span id="wepAPS" class="wepVal">0.00</span><br>
+            Attacks per Second: <span id="wepAps" class="wepVal">0.00</span><br>
             Weapon Range: 1.3 metres<br>
             <img style="text-align: center; vertical-align: middle;" src="wepLine.png"><br>
             Item Level: 86<br>
@@ -50,10 +50,8 @@
 
         </select>
     
-        <span id="inpBaseMin">0</span>-<span id="inpBaseMax">0</span>
-<br clear="all">
- <span id="totalMin">0</span>-<span id="totalMax">0</span>
- 
+        <span id="inpBaseMin" type="hidden"></span><span id="inpBaseMax"></span>
+        <input id="inpBaseAps" type="hidden">
         <br clear="all">
         <br clear="all">
 
@@ -149,7 +147,7 @@
         <br><br>
     
         <div id="displayTierValues">
-            <p>Added Physical Damage: <span id="minFlatValue"></span> to <span id="maxFlatValue"></span></p>
+            <p><span id="minFlatValue"></span>  <span id="maxFlatValue"></span></p>
         </div>
         
 

@@ -127,6 +127,13 @@ selSpeed.addEventListener("change", () => {
   updateInpSpeedTier(selectedTier);
 });
 
+inpSpeed.addEventListener("change", () => {
+  updateTotalValues();
+});
+
+inpSpeed.addEventListener("input", () => {
+  updateTotalValues();
+});
 
 
 // Initialize input elements with numerical values (optional)
@@ -169,7 +176,7 @@ function updateInpFlatTier(tier) {
     minFlatValue.textContent = tierData.max1;
     maxFlatValue.textContent = tierData.max2;
 
-    displayTierValues.style.display = "block"; // Show the display div
+    displayTierValues.style.display = "none"; // Show the display div
   } else {
     // Handle invalid tier selection (optional)
     console.error("Invalid flat tier selected:", tier);
@@ -185,7 +192,7 @@ function updateInpPhysTier(tier) {
     inpPhys.max = tierData.max; // Set maximum value based on tier
     inpPhys.value = tierData.max; // Set initial value to max(optional)
     // Update display elements (optional)
-    displayTierValues.style.display = "block";
+    displayTierValues.style.display = "none";
   } else {
     // Handle invalid tier selection (optional)
     console.error("Invalid Phys tier selected:", tier);
@@ -202,7 +209,7 @@ function updateInpHybTier(tier) {
     inpHyb.max = tierData.max; // Set maximum value based on tier
     inpHyb.value = tierData.max; // Set initial value to max (optional)
     // Update display elements (optional)
-    displayTierValues.style.display = "block";
+    displayTierValues.style.display = "none";
   } else {
     // Handle invalid tier selection (optional)
     console.error("Invalid Hyb tier selected:", tier);
@@ -312,6 +319,36 @@ function updateTotalValues() {
   totalMin.innerText = minTotal;
   totalMax.innerText = maxTotal;
   wepQual.innerText = isNaN(incQual) ? 0 : incQual;
+
+  // Update `wepAps` based on base APS and speed modifier
+const selectedBase = selBase.value;
+const baseData = axeBases[selectedBase];
+
+
+if (baseData) {
+    const baseAps = parseFloat(baseData.baseAps);
+    wepAps.innerText = baseAps.toFixed(2);
+    inpBaseAps.value = baseAps.toFixed(2);
+
+    const speedModifier = parseFloat(inpSpeed.value) / 100;
+    if (!isNaN(speedModifier)) {
+        const totalAps = baseAps * (1 + speedModifier);
+        wepAps.innerText = totalAps.toFixed(2);
+    } else {
+        wepAps.innerText = baseAps.toFixed(2);
+    }
+} else {
+    wepAps.innerText = "Base not selected";
+    inpBaseAps.value = 0;
+}
+
+selSpeed.addEventListener('change', () => {
+  // Update inpSpeed value based on selSpeed selection
+  // ... (code to update inpSpeed based on selSpeed)
+
+  // Trigger updateTotalValues to recalculate and display
+  updateTotalValues();
+});
 }
 
 // Functions for updating tiers of Phys, Hyb, Speed (similar to updateInpFlatTier)
