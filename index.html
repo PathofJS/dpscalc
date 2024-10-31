@@ -9,9 +9,7 @@
 </head>
 <body>
     
-    <div style="margin-left: 10px;float:left;background-color: rgba(0,0,0,1); ">
-        <img id="baseImg" src="img/basewep.png">
-        </div>
+   
         
         <div class="wepFrame">
           <centre>
@@ -27,7 +25,11 @@
             Item Level: 86<br>
             Requires Level 67, 151 Str, 43 Dex<br>
             <img style="text-align: center; vertical-align: middle;" src="img/wepLine.png"><br>
-            <span class="wepEnch" style="text-align: center; vertical-align: middle;">Enchantment line</span><br>
+            <span class="wepEnch" style="text-align: center; vertical-align: middle; color: #b4b4ff;">Enchantment line</span><br>
+            <img style="text-align: center; vertical-align: middle;" src="img/wepLine.png"><br>
+            <span class="wepEnch" style="text-align: center; vertical-align: middle;color:#88f">Synth line1</span><br>
+            <span class="wepEnch" style="text-align: center; vertical-align: middle;color:#88f">Synth line2</span><br>
+            <span class="wepEnch" style="text-align: center; vertical-align: middle;color:#88f">Synth line3 lol</span><br>
             <img style="text-align: center; vertical-align: middle;" src="img/wepLine.png"><br>
             <span id="wepPrf1" class="aff">Pref1</span><br>
             <span id="wepPrf2" class="aff">Pref2</span><br>
@@ -36,6 +38,10 @@
             <span id="wepSuf2" class="aff">Suf2</span><br>
             <span id="wepSuf3" class="aff">Suf3</span><br><br>
           </centre>
+        </div> 
+        
+        <div style="margin-left: 10px;float:left; ">
+        <img id="baseImg" src="img/basewep.png">
         </div>
 
 
@@ -168,17 +174,37 @@
 
 <style>
 body {
-    background-color: black;
-    color: beige;
     font-family: Fontin;
+    background-color: #000;
+    color:rgb(163, 141, 109);
+    background-size: cover;
+
+
 }
+
+body::after {
+background-size: cover;
+
+  content: "";
+  background: url(img/settlersofkalguur.jpg);
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  width:auto;
+  height: auto;  
+}
+
 .wepFrame {
      margin-left: 10px;
      float:left;
     width: 450px;
 
     border: 1px solid black;
-    background-color: rgba(100,100,100,0.3);
+    background-color: rgba(0,0,0,0.8);
     text-align: center;
     color: #7f7f7f;
     font-family: 'Fontin SmallCaps', sans-serif;
@@ -243,6 +269,7 @@ span.wepHead {
 .sels {
             width: 170px;
             font-family: "Fontin", sans-serif;
+
         }
 
         .inps{
