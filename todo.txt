@@ -13,8 +13,6 @@ Add Corruption explicits, if they are better than Synthesis explicit mods.
 
 GUI
 ---
-Add Pictures and names of selected bases to UI on selection.
-
 Add Affixes Mod names to UI.
 
 Add copy paste mods feature for POB usage.
@@ -23,3 +21,8 @@ Add copy paste mods feature for POB usage.
 Fun
 ---
 Add a Weapon Name Generator eg Name Pref + Name Suff = Demon + Slayer
+
+
+Done
+----
+Add Pictures and names of selected bases to UI on selection.

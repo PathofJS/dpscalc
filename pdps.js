@@ -1,6 +1,41 @@
 
 document.addEventListener("DOMContentLoaded", function() {
-          
+
+const wepName = document.querySelector('.wepName');
+const baseImg = document.getElementById("baseImg");
+  // Array of image paths to be preloaded
+  baseImg.src = 'img/karui.png';
+const imgPaths = [
+  'img/karui.png',
+  'img/vaal.png',
+  'img/void.png',
+  'img/fleshripper.png',
+  'img/despot.png',
+  'img/apex.png',
+  'img/sundering.png',
+  'img/talon.png',
+  'img/ezomyte.png',
+  'img/abyssal.png',
+  'img/noble.png',
+  'img/honed.png',
+
+
+  // Add more image paths as needed
+];
+
+// Function to preload images
+function preloadImages(imgPaths) {
+  imgPaths.forEach(path => {
+      const img = new Image();
+      img.src = path;
+  });
+}
+
+// Call the preload function
+preloadImages(imgPaths);
+
+
+
           const selBase = document.getElementById("selBase");
             const inpBaseMin = document.getElementById("inpBaseMin");
             const inpBaseMax = document.getElementById("inpBaseMax");
@@ -35,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             //Array Data for Axes
             const axeBases = {
-              0:      {min:0, max:0, baseAps:0},
+              basewep:      {min:0, max:0, baseAps:0},
               karui:  {min:121, max:189, baseAps:1.05},
               vaal:   {min:104, max: 174, baseAps:1.10},
               void:   {min:96, max:144, baseAps:1.25},
@@ -337,6 +372,8 @@ function updateTotalValues() {
 
   // Update `wepAps` based on base APS and speed modifier
 const selectedBase = selBase.value;
+
+
 const baseData = axeBases[selectedBase];
 
 
@@ -344,6 +381,10 @@ if (baseData) {
     const baseAps = parseFloat(baseData.baseAps);
     wepAps.innerText = baseAps.toFixed(2);
     inpBaseAps.value = baseAps.toFixed(2);
+
+
+
+
 
     const speedModifier = parseFloat(inpSpeed.value) / 100;
     if (!isNaN(speedModifier)) {
@@ -366,7 +407,16 @@ selSpeed.addEventListener('change', () => {
 });
 }
 
+
+selBase.addEventListener('change', () => {
+  const selectedBase = selBase.value;
+  baseImg.src = `img/${selectedBase}.png`;
+  wepName.textContent = selBase.options[selBase.selectedIndex].text;
+  updateTotalValues();
+
 // Functions for updating tiers of Phys, Hyb, Speed (similar to updateInpFlatTier)
 // Implement similar logic for updateInpPhysTier, updateInpHybTier, and updateInpSpeedTier functions
+
+});
 
 });

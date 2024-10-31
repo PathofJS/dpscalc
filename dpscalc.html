@@ -10,13 +10,13 @@
 <body>
     
     <div style="margin-left: 10px;float:left;background-color: rgba(0,0,0,1); ">
-        <img src="img/Karui_Chopper.png">
+        <img id="baseImg" src="img/basewep.png">
         </div>
         
         <div class="wepFrame">
           <centre>
         
-            <span class="wepHead"><img src="img/KaruiChopper_HeaderName.png"></span>
+            <span class="wepHead"><img src="img/wepName.png"><span class="wepName"></span></span>
             Two Handed Axe<br>
             Quality: <span class="wepVal">+<span id="wepQual">0</span>%</span><br>
             Physical Damage: <span class="wepVal"><span  id="totalMin">0</span>-<span  id="totalMax">0</span></span><br>
@@ -44,7 +44,7 @@
         <br clear="all">
         
         <select id="selBase" class="sels">
-            <option value="0">Select Base</option>
+            <option value="basewep">Select Base</option>
             <option value="karui">Karui Chopper</option>
             <option value="vaal">Vaal Axe</option>
             <option value="void">Void Axe</option>
@@ -193,7 +193,19 @@ body {
 .aff {    color: #88f}
 
 
+.wepHead {
+    position: relative;
+}
 
+.wepName {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFF77; /* Adjust text color as needed */
+    font-size: 23px; /* Adjust font size as needed */
+    text-align: center;
+}
 
 span.wepHead {
   position: relative; /* Necessary for absolute positioning of children */
