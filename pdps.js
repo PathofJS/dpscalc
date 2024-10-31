@@ -35,13 +35,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
             //Array Data for Axes
             const axeBases = {
-                0:{ min: 0, max: 0, baseAps: 0},
-                karui: { min: 121, max: 189, baseAps: 1.05 },
-                despot: { min: 90, max: 122, baseAps: 1.40 }
+              0:      {min:0, max:0, baseAps:0},
+              karui:  {min:121, max:189, baseAps:1.05},
+              vaal:   {min:104, max: 174, baseAps:1.10},
+              void:   {min:96, max:144, baseAps:1.25},
+              fleshripper:  {min:97, max:152, baseAps:1.20},
+              despot: {min:90, max:122, baseAps:1.40},
+              apex:   {min:78, max:121, baseAps:1.35},
+              sundering:    {min:74, max:155, baseAps:1.10},
+              talon:  {min:88, max:138, baseAps:1.10},
+              ezomyte:  {min:87, max:131, baseAps:1.10},
+              abyssal: {min:81,	max:121, baseAps:1.10},
+              noble: {min:76,	max:103, baseAps:1.10},
+              honed:{min:60, max:95, baseAps:1.10}
             };
             
             const tiersFlat = {
-                0: { min1: "", max1: "", min2: "", max2: "" },
+                0: { min1: "0", max1: "0", min2: "0", max2: "0" },
                 1: { min1: 34, max1: 47, min2: 72, max2: 84 },
                 2: { min1: 30, max1: 40, min2: 63, max2: 73 },
                 3: { min1: 25, max1: 33, min2: 52, max2: 61 },
@@ -284,6 +294,7 @@ function updateTotalValues() {
     inpHybValue = 0;
   }
 
+
   // Calculate total values based on tier selection
   let minTotal = minBaseValue + minFlatValue;
   let maxTotal = maxBaseValue + maxFlatValue;
@@ -299,8 +310,12 @@ function updateTotalValues() {
       multiplier = 1 + totalTierValue / 100;
     }
 
-    minTotal = Math.round(minTotal * multiplier);
-    maxTotal = Math.round(maxTotal * multiplier);
+    // Apply multiplier without rounding first
+    minTotal *= multiplier;
+    maxTotal *= multiplier;
+
+
+    
   } else {
     // If flat tiers are not selected, use base values directly
     if (inpPhysValue > 0 || inpHybValue > 0) {
@@ -313,11 +328,11 @@ function updateTotalValues() {
   }
 
   // Apply quality multiplier at the end
-  minTotal = Math.round(minTotal * qualityMultiplier);
-  maxTotal = Math.round(maxTotal * qualityMultiplier);
+  minTotal = minTotal * qualityMultiplier;
+  maxTotal = maxTotal * qualityMultiplier;
 
-  totalMin.innerText = minTotal;
-  totalMax.innerText = maxTotal;
+  totalMin.innerText = Math.round(minTotal);
+  totalMax.innerText = Math.round(maxTotal);
   wepQual.innerText = isNaN(incQual) ? 0 : incQual;
 
   // Update `wepAps` based on base APS and speed modifier
