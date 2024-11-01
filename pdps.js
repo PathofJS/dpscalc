@@ -61,11 +61,17 @@ preloadImages(imgPaths);
     
             const totalMin = document.getElementById("totalMin");
             const totalMax = document.getElementById("totalMax");
-            
+                        const wepAps = document.getElementById("wepAps");
                 
             //Quality Input vars
               const inpQual = document.getElementById("inpQual");
               const wepQual = document.getElementById("wepQual");
+
+              const basePdps = document.getElementById("basePdps");
+
+            
+            
+
             //ARRAYS
 
             //Array Data for Axes
@@ -147,24 +153,28 @@ preloadImages(imgPaths);
     const selectedBase = parseInt(selBase.value);
     updateInpBase(selectedBase);
     updateTotalValues(); // Call updateTotalValues here as well
+    updatePdps();
   });
 
 selFlat.addEventListener("change", () => {
   const selectedTier = parseInt(selFlat.value);
   updateInpFlatTier(selectedTier);
   updateTotalValues();
+  updatePdps();
 });
 
 selPhys.addEventListener("change", () => {
   const selectedTier = parseInt(selPhys.value);
   updateInpPhysTier(selectedTier);
   updateTotalValues();
+  updatePdps();
 });
 
 selHyb.addEventListener("change", () => {
   const selectedTier = parseInt(selHyb.value);
   updateInpHybTier(selectedTier);
   updateTotalValues();
+  updatePdps();
 });
 
 selSpeed.addEventListener("change", () => {
@@ -174,10 +184,12 @@ selSpeed.addEventListener("change", () => {
 
 inpSpeed.addEventListener("change", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 inpSpeed.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 
@@ -282,32 +294,50 @@ function updateInpSpeedTier(tier) {
 // Add event listeners to update total values when input values change
 inpFlatMin.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 inpFlatMax.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 inpBaseMin.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 inpBaseMax.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 inpPhys.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 inpHyb.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
 
 
 inpQual.addEventListener("input", () => {
   updateTotalValues();
+  updatePdps();
 });
+
+
+function updatePdps() {
+  const minPdps = parseFloat(totalMin.innerText); // Assuming wepMin exists
+  const maxPdps = parseFloat(totalMax.innerText); // Assuming wepMax exists
+  const aps = parseFloat(wepAps.innerText);
+
+  const finalDPS = ((minPdps + maxPdps) / 2) * aps;
+
+  basePdps.innerText = finalDPS.toFixed(0);
+}
 
 
 function updateTotalValues() {
@@ -404,6 +434,7 @@ selSpeed.addEventListener('change', () => {
 
   // Trigger updateTotalValues to recalculate and display
   updateTotalValues();
+  updatePdps();
 });
 }
 
@@ -416,7 +447,13 @@ selBase.addEventListener('change', () => {
 
 // Functions for updating tiers of Phys, Hyb, Speed (similar to updateInpFlatTier)
 // Implement similar logic for updateInpPhysTier, updateInpHybTier, and updateInpSpeedTier functions
+updatePdps();
 
 });
+
+
+
+
+
 
 });
