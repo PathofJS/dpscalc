@@ -4,9 +4,6 @@ DPS Calc
 Add default crit values for all bases
 Add Crit chance Selectors.
 
-Add default APS values for all bases.
-Add an AveragePDPS Display.
-
 Add Influence mods to Phys & Speed Selectors.
 Add a 1-3 Selectors for Synthesis explicit mods.
 Add a restriction for if Synth or Influence.
@@ -31,3 +28,7 @@ Add a Weapon Name Generator eg Name Pref + Name Suff = Demon + Slayer
 Done
 ----
 Added Pictures and names of selected bases to UI on selection.
+
+Added all bases &
+Added default APS values for all bases &
+Added an AveragePDPS Display.
