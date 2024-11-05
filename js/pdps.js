@@ -91,7 +91,7 @@ preloadImages(imgPaths);
             const axeBases = {
               basewep:{min:0, max:0, baseAps:0, critc:0, wrange:0},
               karui:{min:"121",max:"189",baseAps:"1.05",critc:"5",wrange:"1.3"},
-              baal:{min:"104",max:"174",baseAps:"1.15",critc:"5",wrange:"1.3"},
+              vaal:{min:"104",max:"174",baseAps:"1.15",critc:"5",wrange:"1.3"},
               fleshripper:{min:"97",max:"152",baseAps:"1.2",critc:"5",wrange:"13"},
               despot:{min:"90",max:"122",baseAps:"1.4",critc:"5",wrange:"1.3"},
               void:{min:"96",max:"144",baseAps:"1.25",critc:"6",wrange:"1.3"},
