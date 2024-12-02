@@ -18,7 +18,7 @@
             Two Handed Axe<br>
             Quality: <span class="wepVal">+<span id="wepQual">0</span>%</span><br>
             Physical Damage: <span class="wepVal"><span  id="totalMin">0</span>-<span  id="totalMax">0</span></span><br>
-            Critical Strike Chance: 0.00%<br>
+            Critical Strike Chance: <span id="wepCrit" class="wepVal">0.00%</span><br>
             Attacks per Second: <span id="wepAps" class="wepVal">0.00</span><br>
             Weapon Range: 1.3 metres<br>
             <img style="text-align: center; vertical-align: middle;" src="img/wepLine.png"><br>
@@ -54,17 +54,17 @@
             <option value="karui">Karui Chopper</option>
             <option value="vaal">Vaal Axe</option>
             <option value="void">Void Axe</option>
-            <option value="fleshripper">Fleshripper</option>
-            <option value="sundering">Sundering Axe</option>
+            <option value="fleshr">Fleshripper</option>
+            <option value="sunder">Sundering Axe</option>
             <option value="despot">Despot Axe</option>
-            <option value="ezomyte">Ezomyte Axe</option>
+            <option value="ezom">Ezomyte Axe</option>
             <option value="talon">Talon Axe</option>
             <option value="apex">Apex Cleaver</option>
-            <option value="abyssal">Abyssal Axe</option>            
+            <option value="abyss">Abyssal Axe</option>            
             <option value="labrys">Labrys Axe</option>
             <option value="noble">Noble Axe</option>
             <option value="honed">Honed Cleaver</option>
-            <option value="headsman">Headsman Axe</option> 
+            <option value="heads">Headsman Axe</option> 
             <option value="timber">Timber Axe</option>
             <option value="jasper">Jasper Axe</option>
             <option value="dagger">Dagger Axe</option>
@@ -73,7 +73,7 @@
             <option value="gilded">Gilded Axe</option>
             <option value="double">Double Axe</option>
             <option value="pole">Pole Axe</option>
-            <option value="woodsplitter">Woodsplitter</option>
+            <option value="woods">Woodsplitter</option>
             <option value="jade">Jade Axe</option>
             <option value="stone">Stone Axe</option>
         </select>
@@ -156,7 +156,7 @@
     
     
         <select id="selSpeed" class="sels">
-            <option value="">Increased Attack Speed</option>
+            <option value="9">Increased Attack Speed</option>
     
             <option value="0">Essence</option>
             <option value="1">Tier 1</option>
@@ -174,6 +174,48 @@
     <label for="inpSpeed">% Increased Attack Speed</label>
         <br><br>
     
+        <select id="selCrit" class="sels">
+            <option value="0">Increased Critical Chance</option>
+    
+            <option value="1">Tier 1</option>
+            <option value="2">Tier 2</option>
+            <option value="3">Tier 3 / Essence</option>
+            <option value="4">Craft 1</option>
+            <option value="5">Craft 2</option>
+            <option value="6">Tier 4</option>
+            <option value="7">Craft 3</option>
+            <option value="8">Tier 5</option>
+            <option value="9">Tier 6</option>
+        </select>
+    
+        
+        <input type="number" id="inpCrit" class="inps" min="15" max="79">
+    <label for="inpCrit">% Increased Critical Chance</label>
+        <br><br>
+
+        <select id="selEnch" class="sels">
+            <option value="9">Ench</option>
+    
+            <option value="0">Essence</option>
+            <option value="1">Tier 1</option>
+            <option value="2">Tier 2</option>
+            <option value="3">Tier 3</option>
+            <option value="4">Tier 4</option>
+            <option value="5">Tier 5</option>
+            <option value="6">Tier 6</option>
+            <option value="7">Tier 7</option>
+            <option value="8">Tier 8</option>
+        </select>
+    
+        
+        <input type="number" id="inpEnch1" class="inps" min="15" max="79">
+    <label for="inpEnch1">% Ench1</label> 
+    <input type="number" id="inpEnch2" class="inps" min="15" max="79">
+    <label for="inpEnch2">% Ench2</label>
+        <br><br>
+
+
+
         <div id="displayTierValues">
             <p><span id="minFlatValue"></span>  <span id="maxFlatValue"></span></p>
         </div>
@@ -322,8 +364,8 @@ span.wepHead {
 -webkit-text-stroke-color: rgb(163, 141, 109);
         }
 
-        #inpPhys, #inpHyb, #inpSpeed {
-            margin-left: 37px;
+        #inpPhys, #inpHyb, #inpSpeed, #inpCrit, #inpEnch1 {
+            margin-left: 38px;
         }
 
 
