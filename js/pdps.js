@@ -4,21 +4,21 @@ document.addEventListener("DOMContentLoaded", function() {
 const wepName = document.querySelector('.wepName');
 const baseImg = document.getElementById("baseImg");
   // Array of image paths to be preloaded
-  baseImg.src = 'img/karui.png';
+  baseImg.src = 'img/stone.png';
   const imgPaths = [
     'img/karui.png',
     'img/vaal.png',
-    'img/fleshripper.png',
+    'img/flesh.png',
     'img/despot.png',
     'img/void.png',
     'img/talon.png',
-    'img/ezomyte.png',
-    'img/abyssal.png',
+    'img/ezom.png',
+    'img/abyss.png',
     'img/apex.png',
-    'img/sundering.png',
+    'img/sunder.png',
     'img/labrys.png',
     'img/noble.png',
-    'img/headsman.png',
+    'img/heads.png',
     'img/honed.png',
     'img/jasper.png',
     'img/dagger.png',
@@ -28,7 +28,7 @@ const baseImg = document.getElementById("baseImg");
     'img/prime.png', 
     'img/double.png', 
     'img/pole.png', 
-    'img/woodsplitter.png', 
+    'img/woods.png', 
     'img/jade.png', 
     'img/stone.png', 
 
@@ -71,64 +71,68 @@ preloadImages(imgPaths);
             //Inc Speed: Select and Input vars
             const selSpeed = document.getElementById("selSpeed");
             const inpSpeed = document.getElementById("inpSpeed");
+
+            //Inc Speed: Select and Input vars
+            const selCrit = document.getElementById("selCrit");
+            const inpCrit = document.getElementById("inpCrit");
     
             const totalMin = document.getElementById("totalMin");
             const totalMax = document.getElementById("totalMax");
-                        const wepAps = document.getElementById("wepAps");
+            const wepAps = document.getElementById("wepAps");
                 
             //Quality Input vars
-              const inpQual = document.getElementById("inpQual");
-              const wepQual = document.getElementById("wepQual");
+            const inpQual = document.getElementById("inpQual");
+            const wepQual = document.getElementById("wepQual");
 
-              const basePdps = document.getElementById("basePdps");
+            const basePdps = document.getElementById("basePdps");
 
             
             
 
             //ARRAYS
 
-            //Array Data for Axes
-            const axeBases = {
-              basewep:{min:0, max:0, baseAps:0, critc:0, wrange:0},
-              karui:{min:"121",max:"189",baseAps:"1.05",critc:"5",wrange:"1.3"},
-              vaal:{min:"104",max:"174",baseAps:"1.15",critc:"5",wrange:"1.3"},
-              fleshripper:{min:"97",max:"152",baseAps:"1.2",critc:"5",wrange:"13"},
-              despot:{min:"90",max:"122",baseAps:"1.4",critc:"5",wrange:"1.3"},
-              void:{min:"96",max:"144",baseAps:"1.25",critc:"6",wrange:"1.3"},
-              talon:{min:"88",max:"138",baseAps:"1.2",critc:"5",wrange:"1.3"},
-              ezomyte:{min:"87",max:"131",baseAps:"1.35",critc:"5.7",wrange:"1.3"},
-              abyssal:{min:"81",max:"121",baseAps:"1.25",critc:"5",wrange:"1.3"},
-              apex:{min:"78",max:"121",baseAps:"1.35",critc:"5",wrange:"1.3"},
-              sundering:{min:"74",max:"155",baseAps:"1.3",critc:"5",wrange:"1.3"},
-              labrys:{min:"74",max:"123",baseAps:"1.2",critc:"5",wrange:"1.3"},
-              noble:{min:"76",max:"103",baseAps:"1.3",critc:"5",wrange:"1.3"},
-              headsman:{min:"61",max:"92",baseAps:"1.3",critc:"5",wrange:"1.3"},
-              honed:{min:"60",max:"95",baseAps:"1.35",critc:"5",wrange:"1.3"},
-              jasper:{min:"58",max:"91",baseAps:"1.15",critc:"5",wrange:"1.3"},
-              dagger:{min:"53",max:"83",baseAps:"1.2",critc:"5",wrange:"1.3"},
-              timber:{min:"48",max:"99",baseAps:"1.25",critc:"5",wrange:"1.3"},
-              shadow:{min:"49",max:"73",baseAps:"1.25",critc:"5",wrange:"1.3"},
-              gilded:{min:"43",max:"58",baseAps:"1.3",critc:"5",wrange:"1.3"},
-              prime:{min:"39",max:"61",baseAps:"1.35",critc:"5",wrange:"1.3"},
-              double:{min:"36",max:"60",baseAps:"1.25",critc:"5",wrange:"1.3"},
-              pole:{min:"29",max:"43",baseAps:"1.3",critc:"5",wrange:"1.3"},
-              woodsplitter:{min:"19",max:"39",baseAps:"1.3",critc:"5",wrange:"1.3"},
-              jade:{min:"19",max:"30",baseAps:"1.25",critc:"5",wrange:"1.3"},
-              stone:{min:"12",max:"20",baseAps:"1.3",critc:"5",wrange:"1.3"},
-              };
+//Array Data for Axes
+const axeBases = {
+basewep:{min:0,    max:0,    baseAps:0,   critc:0,  wrange:0},
+karui:  {min:121,  max:189,  baseAps:1.05,critc:5,  wrange:1.3},
+vaal:   {min:104,  max:174,  baseAps:1.15,critc:5,  wrange:1.3},
+flesh: {min:97,   max:152,  baseAps:1.2, critc:5,  wrange:13},
+despot: {min:90,   max:122,  baseAps:1.4, critc:5,  wrange:1.3},
+void:   {min:96,   max:144,  baseAps:1.25,critc:6,  wrange:1.3},
+talon:  {min:88,   max:138,  baseAps:1.2, critc:5,  wrange:1.3},
+ezom:   {min:87,   max:131,  baseAps:1.35,critc:5.7,wrange:1.3},
+abyss:  {min:81,   max:121,  baseAps:1.25,critc:5,  wrange:1.3},
+apex:   {min:78,   max:121,  baseAps:1.35,critc:5,  wrange:1.3},
+sunder: {min:74,   max:155,  baseAps:1.3, critc:5,  wrange:1.3},
+labrys: {min:74,   max:123,  baseAps:1.2, critc:5,  wrange:1.3},
+noble:  {min:76,   max:103,  baseAps:1.3, critc:5,  wrange:1.3},
+heads:  {min:61,   max:92,  baseAps:1.3,  critc:5,  wrange:1.3},
+honed:  {min:60,   max:95,  baseAps:1.35, critc:5,  wrange:1.3},
+jasper: {min:58,   max:91,  baseAps:1.15, critc:5,  wrange:1.3},
+dagger: {min:53,   max:83,  baseAps:1.2,  critc:5,  wrange:1.3},
+timber: {min:48,   max:99,  baseAps:1.25, critc:5,  wrange:1.3},
+shadow: {min:49,   max:73,  baseAps:1.25, critc:5,  wrange:1.3},
+gilded: {min:43,   max:58,  baseAps:1.3,  critc:5,  wrange:1.3},
+prime:  {min:39,   max:61,  baseAps:1.35, critc:5,  wrange:1.3},
+double: {min:36,   max:60,  baseAps:1.25, critc:5,  wrange:1.3},
+pole:   {min:29,   max:43,  baseAps:1.3,  critc:5,  wrange:1.3},
+woods:  {min:19,   max:39,  baseAps:1.3,  critc:5,  wrange:1.3},
+jade:   {min:19,   max:30,  baseAps:1.25, critc:5,  wrange:1.3},
+stone:  {min:12,   max:20,  baseAps:1.3,  critc:5,  wrange:1.3}
+};
             
-            const tiersFlat = {
-                0: { min1: "0", max1: "0", min2: "0", max2: "0" },
-                1: { min1: 34, max1: 47, min2: 72, max2: 84 },
-                2: { min1: 30, max1: 40, min2: 63, max2: 73 },
-                3: { min1: 25, max1: 33, min2: 52, max2: 61 },
-                4: { min1: 20, max1: 28, min2: 43, max2: 51 },
-                5: { min1: 16, max1: 22, min2: 35, max2: 40 },
-                6: { min1: 13, max1: 17, min2: 28, max2: 32 },
-                7: { min1: 10, max1: 13, min2: 21, max2: 25 },
-                8: { min1: 6, max1: 8, min2: 12, max2: 15 },
-                9: { min1: 2, max1: 2, min2: 4, max2: 5 }
-            };
+const tiersFlat = {
+0: { min1: 0, max1: 0, min2: 0, max2: 0 },
+1: { min1: 34, max1: 47, min2: 72, max2: 84 },
+2: { min1: 30, max1: 40, min2: 63, max2: 73 },
+3: { min1: 25, max1: 33, min2: 52, max2: 61 },
+4: { min1: 20, max1: 28, min2: 43, max2: 51 },
+5: { min1: 16, max1: 22, min2: 35, max2: 40 },
+6: { min1: 13, max1: 17, min2: 28, max2: 32 },
+7: { min1: 10, max1: 13, min2: 21, max2: 25 },
+8: { min1: 6, max1: 8, min2: 12, max2: 15 },
+9: { min1: 2, max1: 2, min2: 4, max2: 5 }
+};
 
      
    
@@ -143,7 +147,7 @@ preloadImages(imgPaths);
                 3: { min: 135, max: 154 },
                 2: { min: 155, max: 169 },
                 1: { min: 170, max: 179 },
-                0: { min: "", max: ""}
+                0: { min: 0, max: 0}
             };
     
             const tiersHyb = {
@@ -155,11 +159,11 @@ preloadImages(imgPaths);
                 3: { min: 55, max: 64 },
                 2: { min: 65, max: 74 },
                 1: { min: 75, max: 79 },
-                0: { min: "", max: ""}
+                0: { min: 0, max: 0}
             };
     
             const tiersSpeed = {
-                           
+                9: { min: 0, max: 0 },      
                 8: { min: 5, max: 7 },
                 7: { min: 8, max: 10 },
                 6: { min: 11, max: 13 },
@@ -170,7 +174,40 @@ preloadImages(imgPaths);
                 1: { min: 26, max: 27 },
                 0: { min: 28, max: 30 } 
             };
+
+            const tiersCrit = {
+              0: { min: 0, max: 0 },      
+              1: { min: 35, max: 38 },
+              2: { min: 30, max: 34 },
+              3: { min: 25, max: 29 },
+              4: { min: 25, max: 27 },
+              5: { min: 20, max: 24 },
+              6: { min: 20, max: 24 },
+              7: { min: 17, max: 19 },
+              8: { min: 15, max: 19 },
+              9: { min: 10, max: 14 } 
+          };
+
+
+
+
+
+
     
+
+            const tiersEnch = [
+              { physMods: 6 },
+              { physMods: 8 },
+              { physMods: 10 },
+              { physMods: 15 },
+              { speedMods: 6 },
+              { speedMods: 8 },
+              { speedMods: 10 },
+              { speedMods: 12 },
+              { speedMods: 15 },
+              { physMods: 6, speedMods: 6 },
+              { physMods: 6, critMods: 6 }
+          ];
 
             
            // EventListeners for Changes in Select elements
@@ -208,15 +245,34 @@ selSpeed.addEventListener("change", () => {
   updateInpSpeedTier(selectedTier);
 });
 
-inpSpeed.addEventListener("change", () => {
+selCrit.addEventListener("change", () => {
+  const selectedTier = parseInt(selCrit.value);
+  updateInpCritTier(selectedTier);
   updateTotalValues();
-  updatePdps();
 });
 
-inpSpeed.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
+
+// Add event listeners to update total values when input values change
+const inputElements = [
+  inpFlatMin,
+  inpFlatMax,
+  inpBaseMin,
+  inpBaseMax,
+  inpPhys,
+  inpHyb,
+  inpSpeed,
+  inpQual,
+  inpCrit
+];
+
+inputElements.forEach(input => {
+  input.addEventListener('input', () => {
+    updateTotalValues();
+    updatePdps();
+  });
 });
+
+
 
 
 // Initialize input elements with numerical values (optional)
@@ -316,43 +372,19 @@ function updateInpSpeedTier(tier) {
   }
 }
 
+function updateInpCritTier(tier) {
+  const tierData = tiersCrit[tier];
 
-// Add event listeners to update total values when input values change
-inpFlatMin.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
-});
-
-inpFlatMax.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
-});
-
-inpBaseMin.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
-});
-
-inpBaseMax.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
-});
-
-inpPhys.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
-});
-
-inpHyb.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
-});
+  if (tierData) {
+    inpCrit.min = tierData.min;
+    inpCrit.max = tierData.max;
+    inpCrit.value = tierData.max; // Set initial value to max
+  } else {
+    console.error("Invalid Crit tier selected:", tier);
+  }
+}
 
 
-inpQual.addEventListener("input", () => {
-  updateTotalValues();
-  updatePdps();
-});
 
 
 function updatePdps() {
@@ -367,10 +399,10 @@ function updatePdps() {
 
 
 function updateTotalValues() {
-  const minFlatValue = inpFlatMin.value ? parseInt(inpFlatMin.value) : 0;
-  const maxFlatValue = inpFlatMax.value ? parseInt(inpFlatMax.value) : 0;
-  const minBaseValue = parseInt(inpBaseMin.value);
-  const maxBaseValue = parseInt(inpBaseMax.value);
+  const minFlatValue = parseInt(inpFlatMin.value) || 0;
+  const maxFlatValue = parseInt(inpFlatMax.value) || 0;
+  const minBaseValue = parseInt(inpBaseMin.value) || 0;
+  const maxBaseValue = parseInt(inpBaseMax.value) || 0;
   const incQual = parseInt(inpQual.value);
   const qualityMultiplier = isNaN(incQual) ? 1 : (1 + incQual / 100);
 
@@ -384,7 +416,6 @@ function updateTotalValues() {
   if (isNaN(inpHybValue)) {
     inpHybValue = 0;
   }
-
 
   // Calculate total values based on tier selection
   let minTotal = minBaseValue + minFlatValue;
@@ -428,19 +459,24 @@ function updateTotalValues() {
 
   // Update `wepAps` based on base APS and speed modifier
 const selectedBase = selBase.value;
-
-
 const baseData = axeBases[selectedBase];
+const baseCritChance = baseData ? baseData.critc : 0;
 
+  // Get the crit multiplier from inpCrit, handling invalid input
+  const critMultiplierInput = parseFloat(inpCrit.value);
+  const critMultiplier = isNaN(critMultiplierInput) ? 1 : 1 + (critMultiplierInput / 100);
+  
+
+  // Calculate the total crit chance
+  const totalCritChance = baseCritChance * critMultiplier;
+
+  // Display the calculated crit chance in the wepCrit element
+  wepCrit.innerText = totalCritChance.toFixed(2) + "%";
 
 if (baseData) {
-    const baseAps = parseFloat(baseData.baseAps);
-    wepAps.innerText = baseAps.toFixed(2);
-    inpBaseAps.value = baseAps.toFixed(2);
-
-
-
-
+  const baseAps = parseFloat(baseData.baseAps);
+  wepAps.innerText = baseAps.toFixed(2);
+  inpBaseAps.value = baseAps.toFixed(2);
 
     const speedModifier = parseFloat(inpSpeed.value) / 100;
     if (!isNaN(speedModifier)) {
@@ -457,7 +493,6 @@ if (baseData) {
 selSpeed.addEventListener('change', () => {
   // Update inpSpeed value based on selSpeed selection
   // ... (code to update inpSpeed based on selSpeed)
-
   // Trigger updateTotalValues to recalculate and display
   updateTotalValues();
   updatePdps();
